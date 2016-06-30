@@ -1,0 +1,7 @@
+<h1>All of My Favorite Tracks!!!</h1>
+
+<ul>
+  <% @tracks.each do |track| %>
+    <li><a href="track_url(track)"><%= track.name %></a></li>
+  <% end %>
+</ul>

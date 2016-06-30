@@ -1,0 +1,7 @@
+<form action="<%= tracks_url %>" method="post">
+  <label for="track_name">Band Name: </label>
+  <input type="text" name="track[name]" id="track_name">
+  <br><br>
+  <%= button_to "Create New Track", tracks_url, method: :post %>
+
+</form>

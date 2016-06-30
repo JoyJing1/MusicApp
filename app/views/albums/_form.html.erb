@@ -1,0 +1,23 @@
+<form action="<%= album_url(params[:id]) %>" method="post">
+
+  <select class="" name="album[band]">
+      <option value="" disabled>--Select Band--</option>
+      <% Band.all.each do |band| %>
+        <% selected = band.id == @album.band_id %>
+        <option <%= selected ? "selected" : "" %>
+          value="<%= band.name %>">
+          <%= band.name %>
+        </option>
+      <% end %>
+  </select>
+  <br><br>
+
+  <input type="radio" name="album[record_type]" value="studio"> Studio<br>
+  <input type="radio" name="album[record_type]" value="live"> Live<br>
+  <br>
+
+  Album Name: <input type="text" name="album[name]">
+  <br><br>
+  <%= button_to "Create new Album", band_url(params[:id]), method: :post %>
+
+</form>

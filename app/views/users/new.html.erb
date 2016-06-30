@@ -1,0 +1,10 @@
+<h1>Create a New Account</h1>
+
+<form action="<%= users_url %>" method="post">
+  Email: <input type="text" name="user[email]" value="">
+  <br><br>
+  Password: <input type="password" name="user[password]" value="">
+  <br><br>
+  <%= button_to "Create New Account", action: "create" %>
+
+</form>

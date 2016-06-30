@@ -1,0 +1,7 @@
+<h1><%= @album.name %></h1>
+
+Band: <%= @album.band.name %> <br>
+Record Type: <%= @album.record_type %>
+
+<%= button_to "Update", album_url(@album), method: :patch %>
+<%= button_to "Remove", album_url(@album), method: :delete %>

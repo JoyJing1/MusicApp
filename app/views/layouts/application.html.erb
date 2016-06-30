@@ -1,0 +1,24 @@
+<% if logged_in? %>
+  <% l_button = button_to "Logout", new_session_url, method: :delete %>
+<% else %>
+  <% l_button = button_to "Go to Login", new_session_url, method: :get %>
+<% end %>
+
+<% current_uri = request.env['PATH_INFO'] %>
+<% login_page = (["/users/new", "/session/new", "/session", "/user"].include?(current_uri) ? true : false) %>
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>MusicApp</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+  <%= yield %>
+  <%= l_button unless login_page %>
+
+</body>
+</html>
